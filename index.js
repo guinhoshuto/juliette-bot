@@ -17,7 +17,8 @@ client.connect()
 
 client.on('message', (channel, tags, message, self)=>{
     if(self) return;
-    switch( message.toLowerCase){
+    console.log("msg:",message.toLowerCase())
+    switch( message.toLowerCase()){
         case '!cuzcuz':
             client.say(channel, `@${tags.username}, o cuscuz tá pronto!`)
             break;
