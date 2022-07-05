@@ -5,13 +5,15 @@ const client = new tmi.Client({
     connection: { reconnect: true},
     options: {debug: true},
     identity: {
-        username: 'guinhoshuto',
+        username: 'juliette_freire_bot',
         password: process.env.TWITCH_OAUTH
     },
     channels: ['marcellus_v', 'guzcalp']
 });
 
-client.connect();
+client.connect()
+.then(() => console.log('foi'))
+.catch(e => console.log(e));
 
 client.on('message', (channel, tags, message, self)=>{
     if(self) return;
