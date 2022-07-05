@@ -4,10 +4,10 @@ require('dotenv').config();
 const client = new tmi.Client({
     connection: { reconnect: true},
     options: {debug: true},
-    // identity: {
-    //     username: 'juliette',
-    //     password: process.env.TWITCH_OAUTH
-    // },
+    identity: {
+        username: 'guinhoshuto',
+        password: process.env.TWITCH_OAUTH
+    },
     channels: ['marcellus_v', 'guzcalp']
 });
 
