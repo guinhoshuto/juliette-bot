@@ -29,4 +29,6 @@ client.on('message', (channel, tags, message, self)=>{
             client.say(channel, `!givepoints @${tags.username} 1000`)
             break;
     }
+    if(message.substring(0,3) === '!ju')        
+        client.say(channel, `Cheer1 ${message.substring(4)}`)
 })
