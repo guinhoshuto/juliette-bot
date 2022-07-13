@@ -8,7 +8,7 @@ const client = new tmi.Client({
         username: 'juliette_freire_bot',
         password: process.env.TWITCH_OAUTH
     },
-    channels: ['marcellus_v', 'guzcalp']
+    channels: ['marcellus_v', 'guzcalp', 'guinhoshuto']
 });
 
 client.connect()
