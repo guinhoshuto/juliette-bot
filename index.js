@@ -25,5 +25,8 @@ client.on('message', (channel, tags, message, self)=>{
         case '!chame':
             client.say(channel, "meu amigo pessoal @miguelchame")
             break;
+        case '!orçamento secreto':
+            client.say(channel, `!givepoints @${tags.username} 1000`)
+            break;
     }
 })
