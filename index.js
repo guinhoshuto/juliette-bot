@@ -41,7 +41,7 @@ client.on('message', (channel, tags, message, self)=>{
             .catch(e => console.log(e));
             break;
         case '!teste':
-            client.say(channel, `${channel} ${tags.bits}`)
+            client.say(channel, `${tags.channel} ${tags.bits}`)
             break;
     }
     if(message.substring(0,3) === '!ju')        
