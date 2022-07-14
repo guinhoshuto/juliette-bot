@@ -1,4 +1,5 @@
 const tmi = require('tmi.js');
+const axios = require('axios');
 require('dotenv').config();
 
 const client = new tmi.Client({
@@ -29,7 +30,15 @@ client.on('message', (channel, tags, message, self)=>{
             client.say(channel, `!points`)
             break;
         case '!rachadinha':
-            client.say(channel, `!givepoints @${tags.username} 1000`)
+            axios.get(`http://feras-leaderboards.herokuapp.com/find/${channel}/${tags.username}`)
+            .then(user => {
+                if(user.points <= 2000){
+                    client.say(channel, `!givepoints @${tags.username} 1000`)
+                } else {
+                    client.say(channel, 'corrupção não é bagunça!')
+                }
+            })
+            .catch(e => console.log(e));
             break;
     }
     if(message.substring(0,3) === '!ju')        
