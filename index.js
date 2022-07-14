@@ -32,7 +32,8 @@ client.on('message', (channel, tags, message, self)=>{
         case '!rachadinha':
             axios.get(`http://feras-leaderboards.herokuapp.com/find/${channel}/${tags.username}`)
             .then(user => {
-                if(user.points <= 2000){
+                if(user.points < 2000){
+                    client.say(channel, `${channel} ${tags.bits}`)
                     client.say(channel, `!givepoints @${tags.username} 1000`)
                 } else {
                     client.say(channel, 'corrupção não é bagunça!')
