@@ -33,5 +33,5 @@ client.on('message', (channel, tags, message, self)=>{
             break;
     }
     if(message.substring(0,3) === '!ju')        
-        client.say(channel, `Cheer1 ${message.substring(4)}`)
+        client.say(channel, `Cheer10 ${message.substring(4)}`)
 })
