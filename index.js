@@ -33,11 +33,11 @@ client.on('message', (channel, tags, message, self)=>{
             const c = channel.substring(1)
             axios.get(`http://feras-leaderboards.herokuapp.com/find/${c}/${tags.username}`)
             .then(user => {
-                if(user.points < 2000){
+                if(user.data.user.points < 2000 || typeof user.data.user == undefined ){
                     console.log(c, user.points)
                     client.say(channel, `!givepoints @${tags.username} 1000`)
                 } else {
-                    console.log(c, user.points)
+                    console.log(c, user.data)
                     client.say(channel, 'corrupção não é bagunça!')
                 }
             })
