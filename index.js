@@ -30,9 +30,11 @@ client.on('message', (channel, tags, message, self)=>{
             client.say(channel, `!points`)
             break;
         case '!rachadinha':
-            axios.get(`http://feras-leaderboards.herokuapp.com/find/${channel}/${tags.username}`)
+            const c = channel.substring(1)
+            axios.get(`http://feras-leaderboards.herokuapp.com/find/${c}/${tags.username}`)
             .then(user => {
                 if(user.points < 2000){
+                    console.log(c)
                     client.say(channel, `!givepoints @${tags.username} 1000`)
                 } else {
                     client.say(channel, 'corrupção não é bagunça!')
@@ -41,7 +43,8 @@ client.on('message', (channel, tags, message, self)=>{
             .catch(e => console.log(e));
             break;
         case '!teste':
-            client.say(channel, `${tags.channel} ${tags.bits}`)
+            console.log(channel)
+            // client.say(channel, `${channel} ${tags.color}`)
             break;
     }
     if(message.substring(0,3) === '!ju')        
