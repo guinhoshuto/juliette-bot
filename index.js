@@ -33,13 +33,15 @@ client.on('message', (channel, tags, message, self)=>{
             axios.get(`http://feras-leaderboards.herokuapp.com/find/${channel}/${tags.username}`)
             .then(user => {
                 if(user.points < 2000){
-                    client.say(channel, `${channel} ${tags.bits}`)
                     client.say(channel, `!givepoints @${tags.username} 1000`)
                 } else {
                     client.say(channel, 'corrupção não é bagunça!')
                 }
             })
             .catch(e => console.log(e));
+            break;
+        case '!teste':
+            client.say(channel, `${channel} ${tags.bits}`)
             break;
     }
     if(message.substring(0,3) === '!ju')        
